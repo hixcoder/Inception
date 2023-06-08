@@ -7,5 +7,5 @@ COPY ./tools/script.sh /
 COPY ./tools/wp-config.php /
 
 
-CMD [ "/script.sh" ]
+# CMD [ "/script.sh" ]
 EXPOSE 9000

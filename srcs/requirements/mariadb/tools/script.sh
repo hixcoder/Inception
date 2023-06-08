@@ -12,8 +12,9 @@ echo "GRANT ALL PRIVILEGES ON $db_name.* TO '$db_user'@'%';" >> myDb.sql
 echo "ALTER USER 'root'@'localhost' IDENTIFIED BY 'root0000';" >> myDb.sql
 echo "FLUSH PRIVILEGES;" >> myDb.sql
 
-mysql < myDb.sql
-
-kill $(cat /var/run/mysqld/mysqld.pid)
+mysql  < myDb.sql
+echo "-------------------------------"
+mysql -u hboumahd -p"hix1234"
+# kill $(cat /var/run/mysqld/mysqld.pid)
 
 # mysqld

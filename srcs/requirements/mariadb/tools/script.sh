@@ -13,8 +13,9 @@ echo "ALTER USER 'root'@'localhost' IDENTIFIED BY 'root0000';" >> myDb.sql
 echo "FLUSH PRIVILEGES;" >> myDb.sql
 
 mysql  < myDb.sql
-echo "-------------------------------"
-mysql -u hboumahd -p"hix1234"
-# kill $(cat /var/run/mysqld/mysqld.pid)
+# echo "-------------------------------"
+# mysql -u hboumahd -p"hix1234"
+sed -i 's/127\.0\.0\.1/0.0.0.0/g' /etc/mysql/mariadb.conf.d/50-server.cnf
+kill $(cat /var/run/mysqld/mysqld.pid)
 
-# mysqld
+mysqld

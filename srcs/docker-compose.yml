@@ -1,11 +1,10 @@
 version: '3'
 services:
   mariadb:
+    container_name: mariadb
     build: 
       context: ./requirements/mariadb
       dockerfile: Dockerfile
-    ports:
-      - 3306:3306
     volumes:
       - mariadb_data:/var/lib/mysql
     networks:
@@ -26,8 +25,6 @@ services:
     build: 
       context: ./requirements/wordpress
       dockerfile: Dockerfile
-    ports:
-      - 9000:9000
     depends_on:
       - mariadb
     volumes:

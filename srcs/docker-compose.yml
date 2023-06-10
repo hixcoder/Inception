@@ -20,6 +20,8 @@ services:
       - wordpress
     networks:
       - mynet
+    volumes:
+      - wordpress_data:/var/www/html
     
   wordpress:
     build: 
@@ -34,7 +36,18 @@ services:
 
 volumes:
   mariadb_data:
+    driver: local
+    driver_opts:
+      o: bind
+      type: none
+      device: '/Users/hboumahd/data/mariadb'
   wordpress_data:
+    driver: local
+    driver_opts:
+      o: bind
+      type: none
+      device: '/Users/hboumahd/data/wordpress'
 
 networks:
   mynet:
+    

@@ -1,19 +1,5 @@
 #!/bin/bash
 
-db_name="wordpress"
-db_user="hboumahd"
-db_pass="hix1234"
-
-DOMAIN_NAME="klj.com"
-WP_TITLE="hixwordpress"
-WP_ADMIN_USR="hixroot"
-WP_ADMIN_PWD="hix1234root"
-WP_ADMIN_EMAIL="hix.root@gmail.com"
-WP_USR="hix"
-WP_EMAIL="hix.user@gmail.com"
-WP_PWD="hix1234user"
-
-
 # For install wordpress
 mkdir -p /var/www/html
 cd /var/www/html
@@ -25,9 +11,9 @@ wp core download  --path="/var/www/html" --allow-root
 
 # update the wordpress config file(wp-config.php)
 mv /var/www/html/wp-config-sample.php /var/www/html/wp-config.php
-sed -i -r "s/database_name_here/$db_name/1"  wp-config.php
-sed -i -r "s/username_here/$db_user/1"  wp-config.php
-sed -i -r "s/password_here/$db_pass/1"  wp-config.php
+sed -i -r "s/database_name_here/$DB_NAME/1"  wp-config.php
+sed -i -r "s/username_here/$DB_USER/1"  wp-config.php
+sed -i -r "s/password_here/$DB_PASS/1"  wp-config.php
 sed -i -r "s/localhost/mariadb/1"  wp-config.php
 
 # For setup wordpress

@@ -1,15 +1,10 @@
 #!/bin/bash
 
-db_name="wordpress"
-db_user="hboumahd"
-db_pass="hix1234"
-
-# sed -i 's/127\.0\.0\.1/0.0.0.0/g' /etc/mysql/mariadb.conf.d/50-server.cnf
 service mysql start 
 
-echo "CREATE DATABASE IF NOT EXISTS $db_name;" > myDb.sql
-echo "CREATE USER IF NOT EXISTS '$db_user'@'%' IDENTIFIED BY '$db_pass';" >> myDb.sql
-echo "GRANT ALL PRIVILEGES ON $db_name.* TO '$db_user'@'%';" >> myDb.sql
+echo "CREATE DATABASE IF NOT EXISTS $DB_NAME;" > myDb.sql
+echo "CREATE USER IF NOT EXISTS '$DB_USER'@'%' IDENTIFIED BY '$DB_PASS';" >> myDb.sql
+echo "GRANT ALL PRIVILEGES ON $DB_NAME.* TO '$DB_USER'@'%';" >> myDb.sql
 echo "ALTER USER 'root'@'localhost' IDENTIFIED BY 'root0000';" >> myDb.sql
 echo "FLUSH PRIVILEGES;" >> myDb.sql
 

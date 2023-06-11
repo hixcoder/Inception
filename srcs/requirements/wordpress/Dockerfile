@@ -6,6 +6,5 @@ RUN apt-get install -y mariadb-server
 
 COPY ./tools/script.sh /
 
-
 CMD [ "/script.sh" ]
 EXPOSE 9000

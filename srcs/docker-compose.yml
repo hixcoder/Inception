@@ -16,6 +16,7 @@ services:
       DB_PASS: ${DB_PASS}
 
   nginx:
+    container_name: nginx
     build: 
       context: ./requirements/nginx
       dockerfile: Dockerfile
@@ -30,6 +31,7 @@ services:
       - wordpress_data:/var/www/html
     
   wordpress:
+    container_name: wordpress
     build: 
       context: ./requirements/wordpress
       dockerfile: Dockerfile
@@ -54,12 +56,13 @@ services:
       DB_PASS: ${DB_PASS}
 
   site:
-      build: 
-        context: ./requirements/bonus/site/
-        dockerfile: Dockerfile
-      restart: always
-      ports:
-        - 80:80
+    container_name: static-site
+    build: 
+      context: ./requirements/bonus/site/
+      dockerfile: Dockerfile
+    restart: always
+    ports:
+      - 80:80
 
 
 volumes:

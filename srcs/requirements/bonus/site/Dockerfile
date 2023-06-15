@@ -6,4 +6,4 @@ COPY ./tools/nginx.conf /etc/nginx/nginx.conf
 COPY ./tools/site /etc/nginx/site
 
 CMD ["nginx", "-g", "daemon off;"]
-EXPOSE 80 443
+EXPOSE 80

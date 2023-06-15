@@ -6,7 +6,7 @@
 #    By: hboumahd <hboumahd@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/10 11:39:26 by hboumahd          #+#    #+#              #
-#    Updated: 2023/06/11 12:45:46 by hboumahd         ###   ########.fr        #
+#    Updated: 2023/06/15 12:42:59 by hboumahd         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,8 +20,8 @@ MY_VOLUMES = $(shell docker volume ls -q)
 all : up
 
 up : 
-	@mkdir -p ~/data/mariadb
-	@mkdir -p ~/data/wordpress
+	@mkdir -p ~/hboumahd/data/mariadb
+	@mkdir -p ~/hboumahd/data/wordpress
 	@${COMPOSE} -f ${DOCKER_COMPOSE_FILE} up -d
 
 build : 
@@ -42,8 +42,8 @@ logs:
 clean: down
 	@docker system prune -af
 	@docker volume rm $(MY_VOLUMES)
-	@rm -rf ~/data/mariadb
-	@rm -rf ~/data/wordpress
+	@rm -rf ~/hboumahd/data/mariadb
+	@rm -rf ~/hboumahd/data/wordpress
 
 re: clean all
 	
